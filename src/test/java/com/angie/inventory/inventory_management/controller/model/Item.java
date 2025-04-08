@@ -1,4 +1,4 @@
-package com.angie.inventory.inventory_management.model; //defines the package where it belongs package declaration 
+package com.angie.inventory.inventory_management.controller.model; //defines the package where it belongs package declaration 
 
 import jakarta.persistence.*;
 
