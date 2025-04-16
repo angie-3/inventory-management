@@ -21,7 +21,6 @@ class InventoryManagementApplicationTests {
 
     @BeforeEach
     void setUp() {
-        // Prepare a test item before each test
         testItem = new Item();
         testItem.setName("Test Item");
         testItem.setQuantity(10);
@@ -30,56 +29,43 @@ class InventoryManagementApplicationTests {
 
     @Test
     void testCreateItem() {
-        // Save the item
         Item savedItem = itemRepository.save(testItem);
 
-        // Assertions
         assertNotNull(savedItem.getId(), "Item ID should not be null");
-        assertEquals("Test Item", savedItem.getName(), "Item name should match");
-        assertEquals(10, savedItem.getQuantity(), "Item quantity should match");
-        assertEquals(99.99, savedItem.getPrice(), "Item price should match");
+        assertEquals("Test Item", savedItem.getName());
+        assertEquals(10, savedItem.getQuantity());
+        assertEquals(99.99, savedItem.getPrice());
     }
 
     @Test
     void testFindItem() {
-        // Save the item
         Item savedItem = itemRepository.save(testItem);
-
-        // Find the item by ID
         Item foundItem = itemRepository.findById(savedItem.getId()).orElse(null);
-        
-        // Assertions
+
         assertNotNull(foundItem, "Item should be found");
-        assertEquals(savedItem.getName(), foundItem.getName(), "Item names should match");
+        assertEquals(savedItem.getName(), foundItem.getName());
     }
 
     @Test
     void testDeleteItem() {
-        // Save the item
         Item savedItem = itemRepository.save(testItem);
-
-        // Delete the item
         itemRepository.delete(savedItem);
 
-        // Try to find the item after deletion
         Item foundItem = itemRepository.findById(savedItem.getId()).orElse(null);
         assertNull(foundItem, "Item should be deleted and not found");
     }
 
     @Test
     void testUpdateItem() {
-        // Save the item
         Item savedItem = itemRepository.save(testItem);
-
-        // Update the item
         savedItem.setName("Updated Item");
         savedItem.setQuantity(20);
         savedItem.setPrice(75.00);
+
         Item updatedItem = itemRepository.save(savedItem);
 
-        // Assertions
-        assertEquals("Updated Item", updatedItem.getName(), "Item name should be updated");
-        assertEquals(20, updatedItem.getQuantity(), "Item quantity should be updated");
-        assertEquals(75.00, updatedItem.getPrice(), "Item price should be updated");
+        assertEquals("Updated Item", updatedItem.getName());
+        assertEquals(20, updatedItem.getQuantity());
+        assertEquals(75.00, updatedItem.getPrice());
     }
 }

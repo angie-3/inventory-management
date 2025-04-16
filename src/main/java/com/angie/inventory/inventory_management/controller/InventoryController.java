@@ -15,7 +15,7 @@ public class InventoryController {
     
     private final InventoryService inventoryService;
 
-    @Autowired
+    
 
     //Injecting Inventory service through constructors
     public InventoryController(InventoryService inventoryService) {
