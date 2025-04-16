@@ -1,6 +1,6 @@
 package com.angie.inventory.inventory_management.controller;
 
-import com.angie.inventory.inventory_management.controller.model.Item;
+import com.angie.inventory.inventory_management.model.Item;
 import com.angie.inventory.inventory_management.service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

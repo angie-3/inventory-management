@@ -1,10 +1,11 @@
-package com.angie.inventory.inventory_management.controller.model; //defines the package where it belongs package declaration 
+package com.angie.inventory.inventory_management.model;
 
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "items")
 public class Item {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,18 +14,18 @@ public class Item {
     private int quantity;
     private double price;
 
-    //default constructor
-    public Item(){
+    // Default constructor
+    public Item() {
     }
-    //parameterized constructor
-    
-    public Item(String name, int quantity, double price){
-        this.name = name;
-        this.quantity =quantity;
-        this.price = price;
-        }
 
-    //Getters and Setters
+    // Parameterized constructor
+    public Item(String name, int quantity, double price) {
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -45,12 +46,11 @@ public class Item {
         this.quantity = quantity;
     }
 
-    public double getPrice(){
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice (double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
-    
 }
