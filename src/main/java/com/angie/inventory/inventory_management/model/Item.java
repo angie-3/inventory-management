@@ -30,6 +30,10 @@ public class Item {
         return id;
     }
 
+    public void setId(Long Id){
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
